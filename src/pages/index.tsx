@@ -1,25 +1,24 @@
-import Button from '@/components/button'
-import GitHubIcon from '@/components/icons/github'
-import Layout from '@/components/layout'
-import { loginWithGiHub, onAuthStateChanged } from '@/firebase/client'
-import { colors } from '@/styles/theme'
-import { Inter } from '@next/font/google'
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
+import Button from '@/components/button';
+import GitHubIcon from '@/components/icons/github';
+import Layout from '@/components/layout';
+import {loginWithGiHub, onAuthStateChanged} from '@/firebase/client';
+import {colors} from '@/styles/theme';
+import {Inter} from '@next/font/google';
+import Head from 'next/head';
+import {useEffect, useState} from 'react';
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({subsets: ['latin']});
 
 export default function Home() {
-
-  const [user, setUser] = useState<any>(undefined)
+  const [user, setUser] = useState<any>(undefined);
 
   const handleClick = async () => {
-    await loginWithGiHub()
-  }
+    await loginWithGiHub();
+  };
 
   useEffect(() => {
-    onAuthStateChanged((user: any) => setUser(user))
-  }, [])
+    onAuthStateChanged((user: any) => setUser(user));
+  }, []);
 
   return (
     <>
@@ -35,22 +34,20 @@ export default function Home() {
           <h1>TwitDev</h1>
           <h2>Talk about development with developers</h2>
           <div>
-            {
-              user === null &&
-                <Button onClick={handleClick}>
-                  <div className='button-content'>
-                    <GitHubIcon fill="white" width={24} height={24} />
-                    Login with Github
-                  </div>
-                </Button>
-            }
-            {
-              user && user.avatar &&
-                <div>
-                  <img src={user.avatar} alt="User Avatar" />
-                  <strong>{user.username}</strong>
-                </div>            
-                }
+            {user === null && (
+              <Button onClick={handleClick}>
+                <div className="button-content">
+                  <GitHubIcon fill="white" width={24} height={24} />
+                  Login with Github
+                </div>
+              </Button>
+            )}
+            {user && user.avatar && (
+              <div>
+                <img src={user.avatar} alt="User Avatar" />
+                <strong>{user.username}</strong>
+              </div>
+            )}
           </div>
         </section>
       </Layout>
@@ -64,7 +61,7 @@ export default function Home() {
         }
         img {
           width: 120px;
-        }  
+        }
         h1 {
           color: ${colors.secondary};
           font-weight: 800;
@@ -79,14 +76,14 @@ export default function Home() {
           margin-top: 16px;
         }
         .button-content {
-            display: flex;
-            align-items: center;
-            margin: 0;
+          display: flex;
+          align-items: center;
+          margin: 0;
         }
         .button-content > :global(svg) {
-            margin-right: 8px;
+          margin-right: 8px;
         }
       `}</style>
     </>
-  )
+  );
 }

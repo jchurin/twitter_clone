@@ -1,22 +1,21 @@
-import styles, { globalStyles } from "./styles"
+import styles, {globalStyles} from './styles';
 
 interface Props {
-    children: React.ReactNode
+  children: React.ReactNode;
 }
-
 
 const Layout = ({children}: Props) => {
-    return (
-        <>
-            <div>
-                <main>
-                    {children}
-                </main>
-            </div>
-            <style jsx>{styles}</style>
-            <style jsx global>{globalStyles}</style>
-        </>
-    )
-}
+  return (
+    <>
+      <div>
+        <main>{children}</main>
+      </div>
+      <style jsx>{styles}</style>
+      <style jsx global>
+        {globalStyles}
+      </style>
+    </>
+  );
+};
 
-export default Layout
+export default Layout;
