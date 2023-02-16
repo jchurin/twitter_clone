@@ -10,7 +10,6 @@ const Button = ({children, onClick}: PropsWithChildren<Props>) => {
   return (
     <>
       <button onClick={onClick}>{children}</button>
-      <button onClick={onClick}>{children}</button>
       <style jsx>{`
         button {
           background: ${colors.black};
