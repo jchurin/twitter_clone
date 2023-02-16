@@ -5,6 +5,7 @@ import {loginWithGiHub, onAuthStateChanged} from '@/firebase/client'
 import {colors} from '@/styles/theme'
 // import {Inter} from '@next/font/google'
 import Head from 'next/head'
+import Image from 'next/image'
 import {useEffect, useState} from 'react'
 
 // const inter = Inter({subsets: ['latin']})
@@ -30,7 +31,7 @@ export default function Home() {
       </Head>
       <Layout>
         <section>
-          <img src="/logo.png" alt="Logo" />
+          <Image src="/logo.png" width={100} height={100} alt="Logo" />
           <h1>TwitDev</h1>
           <h2>Talk about development with developers</h2>
           <div>
@@ -44,7 +45,12 @@ export default function Home() {
             )}
             {user && user.avatar && (
               <div>
-                <img src={user.avatar} alt="User Avatar" />
+                <Image
+                  src={user.avatar}
+                  alt="User Avatar"
+                  width={100}
+                  height={100}
+                />
                 <strong>{user.username}</strong>
               </div>
             )}
