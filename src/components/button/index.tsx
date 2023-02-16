@@ -1,9 +1,9 @@
-import {colors} from '@/styles/theme';
-import {PropsWithChildren} from 'react';
+import {colors} from '@/styles/theme'
+import {PropsWithChildren} from 'react'
 
 interface Props {
-  children: any;
-  onClick: () => {};
+  children: any
+  onClick: () => {}
 }
 
 const Button = ({children, onClick}: PropsWithChildren<Props>) => {
@@ -29,7 +29,7 @@ const Button = ({children, onClick}: PropsWithChildren<Props>) => {
         }
       `}</style>
     </>
-  );
-};
+  )
+}
 
-export default Button;
+export default Button

@@ -1,24 +1,24 @@
-import Button from '@/components/button';
-import GitHubIcon from '@/components/icons/github';
-import Layout from '@/components/layout';
-import {loginWithGiHub, onAuthStateChanged} from '@/firebase/client';
-import {colors} from '@/styles/theme';
-import {Inter} from '@next/font/google';
-import Head from 'next/head';
-import {useEffect, useState} from 'react';
+import Button from '@/components/button'
+import GitHubIcon from '@/components/icons/github'
+import Layout from '@/components/layout'
+import {loginWithGiHub, onAuthStateChanged} from '@/firebase/client'
+import {colors} from '@/styles/theme'
+// import {Inter} from '@next/font/google'
+import Head from 'next/head'
+import {useEffect, useState} from 'react'
 
-const inter = Inter({subsets: ['latin']});
+// const inter = Inter({subsets: ['latin']})
 
 export default function Home() {
-  const [user, setUser] = useState<any>(undefined);
+  const [user, setUser] = useState<any>(undefined)
 
   const handleClick = async () => {
-    await loginWithGiHub();
-  };
+    await loginWithGiHub()
+  }
 
   useEffect(() => {
-    onAuthStateChanged((user: any) => setUser(user));
-  }, []);
+    onAuthStateChanged((user: any) => setUser(user))
+  }, [])
 
   return (
     <>
@@ -85,5 +85,5 @@ export default function Home() {
         }
       `}</style>
     </>
-  );
+  )
 }

@@ -1,10 +1,10 @@
-import * as React from 'react';
+import * as React from 'react'
 
 interface Props {
-  width?: number;
-  height?: number;
-  fill?: string;
-  stroke?: string;
+  width?: number
+  height?: number
+  fill?: string
+  stroke?: string
 }
 
 const GitHubIcon = (props: Props) => {
@@ -23,7 +23,7 @@ const GitHubIcon = (props: Props) => {
         fill={props.fill}
       />
     </svg>
-  );
-};
+  )
+}
 
-export default GitHubIcon;
+export default GitHubIcon

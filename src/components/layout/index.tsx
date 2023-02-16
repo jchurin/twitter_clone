@@ -1,7 +1,7 @@
-import styles, {globalStyles} from './styles';
+import styles, {globalStyles} from './styles'
 
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Layout = ({children}: Props) => {
@@ -15,7 +15,7 @@ const Layout = ({children}: Props) => {
         {globalStyles}
       </style>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout
