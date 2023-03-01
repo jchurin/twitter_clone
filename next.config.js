@@ -9,7 +9,11 @@ const nextConfig = {
         hostname: 'avatars.githubusercontent.com',
         // port: '',
         // pathname: '',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.pravatar.cc',
+      },
     ]
   }
 }

@@ -18,14 +18,13 @@ const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
 const mapUserFromFirebaseToUser = user => {
-  if (!user) return null
   const {displayName, email, photoURL} = user
   return {username: email, avatar: photoURL, name: displayName}
 }
 
 export const onAuthStateChanged = onChange => {
   return auth.onAuthStateChanged(user => {
-    const normalizedUser = mapUserFromFirebaseToUser(user)
+    const normalizedUser = user ? mapUserFromFirebaseToUser(user) : null
     onChange(normalizedUser)
   })
 }

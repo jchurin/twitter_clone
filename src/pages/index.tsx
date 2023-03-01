@@ -1,11 +1,12 @@
+import Avatar from '@/components/avatar'
 import Button from '@/components/button'
 import GitHubIcon from '@/components/icons/github'
+import Logo from '@/components/icons/logo'
 import Layout from '@/components/layout'
 import {loginWithGiHub, onAuthStateChanged} from '@/firebase/client'
 import {colors} from '@/styles/theme'
 // import {Inter} from '@next/font/google'
 import Head from 'next/head'
-import Image from 'next/image'
 import {useEffect, useState} from 'react'
 
 // const inter = Inter({subsets: ['latin']})
@@ -31,7 +32,7 @@ export default function Home() {
       </Head>
       <Layout>
         <section>
-          <Image src="/logo.png" width={100} height={100} alt="Logo" />
+          <Logo width="100" />
           <h1>TwitDev</h1>
           <h2>Talk about development with developers</h2>
           <div>
@@ -45,13 +46,11 @@ export default function Home() {
             )}
             {user && user.avatar && (
               <div>
-                <Image
+                <Avatar
                   src={user.avatar}
-                  alt="User Avatar"
-                  width={100}
-                  height={100}
+                  alt={user.username}
+                  text={user.name}
                 />
-                <strong>{user.username}</strong>
               </div>
             )}
           </div>
@@ -69,12 +68,13 @@ export default function Home() {
           width: 120px;
         }
         h1 {
-          color: ${colors.secondary};
+          color: ${colors.primary};
           font-weight: 800;
+          font-size: 32px;
           margin-bottom: 16px;
         }
         h2 {
-          color: ${colors.primary};
+          color: ${colors.secondary};
           font-size: 21px;
           margin: 0;
         }
